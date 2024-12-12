@@ -18,6 +18,8 @@ function App() {
         },
       }
     )
+
+    
     const data = response.data.results
 
     setSearch(data)
