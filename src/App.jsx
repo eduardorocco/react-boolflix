@@ -5,8 +5,8 @@ import axios from 'axios'
 import { API_BASE_URI, API_KEY, SEARCH_MOVIE_ENDPOINT } from './config/config'
 
 function App() {
-  
-  const [search, setSearch] = useState([])
+
+  const [search, setSearch] = useState('')
 
   async function handleSearch(query) {
     const response = await axios.get(
@@ -18,20 +18,22 @@ function App() {
         },
       }
     )
-
-    console.log(response.data)
-    setSearch(response.data.results)
+    const data = response.data.results
+    setSearch(data)
   }
 
 
-  useEffect(() => {
-    handleSearch('anelli')  
-  }, []) 
+  // useEffect(() => {
+  //   handleSearch('inception')
+  //   console.log(search);  
+  // }, []) 
 
+  handleSearch('inception')
+  
  
-  useEffect(() => {
-    console.log(search)
-  }, [search])
+  // useEffect(() => {
+  //   console.log(search)
+  // }, [search])
 
   return (
     <GlobalContext.Provider>
