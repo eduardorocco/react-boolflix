@@ -13,11 +13,7 @@ import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons'
 const IMAGE_URI = 'https://image.tmdb.org/t/p/'
 const DEFAULT_IMAGE_SIZE = 'w342'
 
-
 export default function Card({ obj }) {
-
-    
-    
     const {
         name,
         original_name,
@@ -32,18 +28,12 @@ export default function Card({ obj }) {
 
     const getFlag = (leng) => {
         switch (leng) {
-            case 'de':
-                return de
-            case 'en':
-                return en
-            case 'es':
-                return es
-            case 'fr':
-                return fr
-            case 'it':
-                return it
-            default:
-                return leng
+            case 'de': return de
+            case 'en': return en
+            case 'es': return es
+            case 'fr': return fr
+            case 'it': return it
+            default: return leng
         }
     }
 
@@ -64,20 +54,25 @@ export default function Card({ obj }) {
 
     return (
         <div className={style.card}>
-
-            <div className="card-title">
-                <p>{title ? title : name}</p>
-                <p>{original_title ? original_title : original_name}</p>
+            <div className={style.posterWrapper}>
+                <img src={poster_path ? `${IMAGE_URI}${DEFAULT_IMAGE_SIZE}${poster_path}` : placeHolder} alt="" />
             </div>
 
-            <div className="card-body">
-                <div className='poster'>
-                    <img src={poster_path ? `${IMAGE_URI}${DEFAULT_IMAGE_SIZE}${poster_path}` : placeHolder } alt="" />
+            <div className={style.cardContent}>
+                <div className={style.cardTitle}>
+                    <p>{title ? title : name}</p>
+                    <p>{original_title ? original_title : original_name}</p>
                 </div>
-                <div className='vote'>{getStars(vote_average)}</div>
-                <div className='vote-count'></div>
-                <div className='lenguage'>{supportedLenguages.includes(original_language) ? (
-                    <img src={getFlag(original_language)} alt="" />) : <div className={style.no_flag_leng}>{original_language}</div>}
+
+                <div className={style.vote}>
+                    {getStars(vote_average)}
+                </div>
+                <div className={style.language}>
+                    {supportedLenguages.includes(original_language) ? (
+                        <img src={getFlag(original_language)} alt="" />
+                    ) : (
+                        <div className={style.noFlag}>{original_language}</div>
+                    )}
                 </div>
             </div>
         </div>

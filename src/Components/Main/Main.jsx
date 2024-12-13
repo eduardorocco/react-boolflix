@@ -8,7 +8,7 @@ export default function Main() {
     const { movies, series } = useContext(GlobalContext)
 
     return (
-        <main>
+        <main className={style.main}>
             <ItemList title='Movies' items={movies} />
             <ItemList title='Series' items={series} />
         </main>
