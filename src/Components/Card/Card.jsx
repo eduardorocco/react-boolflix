@@ -3,10 +3,18 @@ import en from '../../assets/flags/en.png'
 import es from '../../assets/flags/es.png'
 import fr from '../../assets/flags/fr.png'
 import it from '../../assets/flags/it.png'
+import style from './Card.module.css'
 
 export default function Card({ obj }) {
 
-    const { name, original_name, title, original_title, original_language, vote_average } = obj
+    const {
+        name,
+        original_name,
+        title, original_title,
+        original_language,
+        vote_average,
+        poster_path
+    } = obj
 
     const supportedLenguages = ['de', 'en', 'es', 'fr', 'it']
 
@@ -27,9 +35,19 @@ export default function Card({ obj }) {
         }
     }
     return (
-        <>
+        <div className="card">
+            <div className="card-title">
+                <p></p>
+                <p></p>
+            </div>
+            <div className="card-body">
 
-            <ul>
+            </div>
+        </div>
+    )
+}
+
+           {/* <ul>
                 <li>{title ? title : name}</li>
                 <li>{original_title ? original_title : original_name}</li>
                 <li>
@@ -37,9 +55,4 @@ export default function Card({ obj }) {
                         <img src={getFlag(original_language)} alt="" />) : <div>{original_language}</div>}
                 </li>
                 <li>{vote_average}</li>
-            </ul>
-
-        </>
-
-    )
-}
+            </ul> */}
