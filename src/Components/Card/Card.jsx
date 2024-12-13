@@ -6,7 +6,7 @@ import it from '../../assets/flags/it.png'
 
 export default function Card({ obj }) {
 
-    const { title, original_title, original_language, vote_average } = obj
+    const { name, original_name, title, original_title, original_language, vote_average } = obj
 
     const supportedLenguages = ['de', 'en', 'es', 'fr', 'it']
 
@@ -30,8 +30,8 @@ export default function Card({ obj }) {
         <>
 
             <ul>
-                <li>{title}</li>
-                <li>{original_title}</li>
+                <li>{title ? title : name}</li>
+                <li>{original_title ? original_title : original_name}</li>
                 <li>
                     {supportedLenguages.includes(original_language) ? (
                         <img src={getFlag(original_language)} alt="" />) : <div>{original_language}</div>}
