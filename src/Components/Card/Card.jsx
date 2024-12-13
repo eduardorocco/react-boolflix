@@ -9,6 +9,7 @@ import placeHolder from '../../assets/placeholders/placeholder.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as starRegular } from '@fortawesome/free-regular-svg-icons'
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 
 const IMAGE_URI = 'https://image.tmdb.org/t/p/'
 const DEFAULT_IMAGE_SIZE = 'w342'
@@ -21,7 +22,8 @@ export default function Card({ obj }) {
         original_language,
         vote_average,
         poster_path,
-        vote_count
+        vote_count,
+        overview
     } = obj
 
     const supportedLenguages = ['de', 'en', 'es', 'fr', 'it']
@@ -59,13 +61,20 @@ export default function Card({ obj }) {
             </div>
 
             <div className={style.cardContent}>
-                <div className={style.cardTitle}>
-                    <p>{title ? title : name}</p>
-                    <p>{original_title ? original_title : original_name}</p>
+                <div>
+                    <p className={style.cardTitle}>{title ? title : name}</p>
+                    <p className={style.originalTitle}>{original_title ? original_title : original_name}</p>
+                </div>
+
+                <div>
+                    {overview}
                 </div>
 
                 <div className={style.vote}>
-                    {getStars(vote_average)}
+                    <strong>Rating:</strong> {getStars(vote_average)}
+                </div>
+                <div>
+                    {vote_count}{<FontAwesomeIcon icon={faThumbsUp}/>}
                 </div>
                 <div className={style.language}>
                     {supportedLenguages.includes(original_language) ? (
