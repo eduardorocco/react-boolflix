@@ -1,23 +1,16 @@
-import Card from "../Card/Card"
+import ItemList from "../ItemList/ItemList"
 import GlobalContext from "../../Context/GlobalContext"
 import { useContext } from "react"
 import style from './Main.module.css'
 
 export default function Main() {
 
-    const { search } = useContext(GlobalContext)
+    const { movies, series } = useContext(GlobalContext)
 
     return (
-        <div className={style.container}>
-            <div className={style.row}>
-                {search.map((movie) => (
-                    <div key={movie.id} className={style.col_2}>
-                        <Card
-                            obj={movie}
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
+        <main>
+            <ItemList title='Movies' items={movies} />
+            <ItemList title='Series' items={series} />
+        </main>
     )
 }

@@ -6,7 +6,8 @@ import { API_BASE_URI, API_KEY, SEARCH_MOVIE_ENDPOINT, SEARCH_SERIES_ENDPOINT } 
 
 function App() {
 
-  const [search, setSearch] = useState([])
+  const [movies, setMovies] = useState([])
+  const [series, setSeries] = useState([])
 
   async function handleSearch(query) {
     const movieRes = await axios.get(
@@ -29,19 +30,13 @@ function App() {
       }
     )
 
-    const data = [
-      ...movieRes.data.results,
-      ...seriesRes.data.results
-    ]
-
-    console.log(data);
-    setSearch(data)
-    console.log(data);
+    setMovies(movieRes.data.results) 
+    setSeries(seriesRes.data.results)
   }
  
 
   return (
-    <GlobalContext.Provider value={{search, handleSearch}}>
+    <GlobalContext.Provider value={{movies, series, handleSearch}}>
       <Index/>
     </GlobalContext.Provider>
   )
