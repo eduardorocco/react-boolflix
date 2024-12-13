@@ -73,7 +73,7 @@ export default function Card({ obj }) {
                 <div className={style.vote}>
                     <strong>Rating:</strong> {getStars(vote_average)}
                 </div>
-                <div>
+                <div className={style.thumbs}>
                     {vote_count}{<FontAwesomeIcon icon={faThumbsUp}/>}
                 </div>
                 <div className={style.language}>

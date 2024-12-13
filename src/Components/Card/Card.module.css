@@ -1,7 +1,6 @@
 .card {
     position: relative;
     width: 100%;
-    max-width: 500px;
     margin: 10px;
     overflow: hidden;
     border-radius: 10px;
@@ -89,5 +88,10 @@
     padding: 10px 10px;
     border-radius: 5px;
     text-transform: uppercase;
+  }
+
+  .thumbs {
+    display: flex;
+    gap: 10px;
   }
   

@@ -10,7 +10,15 @@
 
 
 .col_2 {
-    width: calc(100% / 5);
+    width: calc(100% / 4);
     padding: 15px;
 
+}
+
+.sectionTitle{
+    color: white;
+    font-weight: lighter;
+    padding-top: 20px;
+    font-size: 50px;
+    padding-left: 20px;
 }
