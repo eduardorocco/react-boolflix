@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import style from './Searchbar.module.css'
 export default function Searchbar({ onSearch }) {
+    
     const [query, setQuery] = useState('')
 
     const handleSearchInput = (event) => {

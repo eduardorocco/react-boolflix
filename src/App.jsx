@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import GlobalContext from './Context/GlobalContext'
-import Index from './Pages'
+import Index from './Pages/Index.jsx'
+import Movies from './Pages/Movies.jsx'
+import Series from './Pages/Series.jsx'
 import axios from 'axios'
 import { API_BASE_URI, API_KEY, SEARCH_MOVIE_ENDPOINT, SEARCH_SERIES_ENDPOINT } from './config/config'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import DefaultLayout from './Layout/DefaultLayout'
 
 function App() {
 
@@ -37,7 +41,15 @@ function App() {
 
   return (
     <GlobalContext.Provider value={{movies, series, handleSearch}}>
-      <Index/>
+      <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayout/>}>
+          <Route path='/' element={<Index/>}/>
+          <Route path='/movies' element={<Movies/>} />
+          <Route path='/series' element={<Series/>} />
+        </Route>
+      </Routes>
+      </BrowserRouter>
     </GlobalContext.Provider>
   )
 }
