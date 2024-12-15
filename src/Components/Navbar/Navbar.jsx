@@ -11,19 +11,21 @@ export default function Header() {
     return (
         <div className={style.navbar}>
             <NavLink to='/'>
-                <div className={style.image}>
+                <div className={`${style.image} ${style.z_index}`}>
                     <img src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="" />
                 </div>
             </NavLink>
-            <NavLink to='/'>
-            <div>Home</div>
+            <div className={style.a_pages}>
+            <NavLink className={style.z_index} to='/'>
+                Home
             </NavLink>
-            <NavLink to='/series'>
-            <div>Serie TV</div>
+            <NavLink className={style.z_index} to='/series'>
+                Serie TV
             </NavLink>
-            <NavLink to='/movies'>
-            <div>Film</div>
+            <NavLink className={style.z_index} to='/movies'>
+                Film
             </NavLink>
+            </div>
             <Searchbar onSearch={handleSearch} />
 
         </div>

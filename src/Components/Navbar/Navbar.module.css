@@ -5,6 +5,7 @@
     padding: 15px;
     align-items: center;
     color: white;
+    
 }
 
 .image{
@@ -12,3 +13,12 @@
     width: 100px;
 }
 
+.a_pages{
+    padding-right: 800px;
+    display: flex;
+    gap: 60px;
+}
+.z_index{
+    z-index: 1;
+    position: relative;
+}

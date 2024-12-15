@@ -23,9 +23,9 @@ export default function Searchbar({ onSearch }) {
                     value={query}
                     onChange={handleSearchInput}
                     placeholder="Cerca un film o serie tv..."
-                    className={style.input}
+                    className= {`${style.input} ${style.z_index}`}
                 />
-                <button className={style.button} type="submit">
+                <button className={`${style.button} ${style.z_index}`} type="submit">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </form>
